@@ -1,0 +1,4 @@
+No templates found matching: 'new' 'sln' '--name'.
+
+For more information, run:
+   dotnet new sln -h

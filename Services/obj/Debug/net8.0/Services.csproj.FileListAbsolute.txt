@@ -1,0 +1,15 @@
+/home/keremprlk/Desktop/x/udemyCourse/Services/bin/Debug/net8.0/Services.deps.json
+/home/keremprlk/Desktop/x/udemyCourse/Services/bin/Debug/net8.0/Services.dll
+/home/keremprlk/Desktop/x/udemyCourse/Services/bin/Debug/net8.0/Services.pdb
+/home/keremprlk/Desktop/x/udemyCourse/Services/bin/Debug/net8.0/Repositories.dll
+/home/keremprlk/Desktop/x/udemyCourse/Services/bin/Debug/net8.0/Repositories.pdb
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.csproj.AssemblyReference.cache
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.GeneratedMSBuildEditorConfig.editorconfig
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.AssemblyInfoInputs.cache
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.AssemblyInfo.cs
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.csproj.CoreCompileInputs.cache
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.csproj.Up2Date
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.dll
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/refint/Services.dll
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/Services.pdb
+/home/keremprlk/Desktop/x/udemyCourse/Services/obj/Debug/net8.0/ref/Services.dll
