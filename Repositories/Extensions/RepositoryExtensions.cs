@@ -2,6 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Repositories.Products;
 
 namespace Repositories.Extensions;
 
@@ -13,10 +14,18 @@ public static class RepositoryExtensions
         {
             var connectionStrings = configuration.GetSection(ConnectionStringOption.Key).Get<ConnectionStringOption>();
 
-            options.UseSqlServer(connectionStrings!.SqlServer, sqlServerOptionsAction => {
+            options.UseSqlServer(connectionStrings!.SqlServer, sqlServerOptionsAction =>
+            {
                 sqlServerOptionsAction.MigrationsAssembly(typeof(RepositoryAssembly).Assembly.FullName);
             });
         });
+
+
+
+
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }
