@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Products;
 
@@ -29,17 +30,28 @@ public class ProductService : IProductService
         };
     }
 
-    public async Task<ServiceResult<ProductResponse>> GetProductByIdAsync(int id)
+
+    public async Task<ServiceResult<IList<ProductResponse>>> GetAllProductsAsync()
+    {
+        var products = await _productsRepository.GetAll().ToListAsync();
+
+        var productsAsDto = products.Select(x => new ProductResponse(x.Id, x.Name, x.Price, x.Stock)).ToList();
+
+        return ServiceResult<IList<ProductResponse>>.Success(productsAsDto); 
+        
+    }
+
+    public async Task<ServiceResult<ProductResponse?>> GetProductByIdAsync(int id)
     {
         var product = await _productsRepository.GetByIdAsync(id);
         if (product is null)
         {
-            return ServiceResult<ProductResponse>.Failure("Product not found");
+            ServiceResult<ProductResponse>.Failure("Product not found");
         }
 
-        var productsAsDto = new ProductResponse(product.Id, product.Name, product.Price, product.Stock);
+        var productsAsDto = new ProductResponse(product!.Id, product.Name, product.Price, product.Stock);
 
-        return ServiceResult<ProductResponse>.Success(productsAsDto!); //product cant be null
+        return ServiceResult<ProductResponse>.Success(productsAsDto)!; //product cant be null
     }
 
     public async Task<ServiceResult<CreateProductResponse>> CreateProductAsync(CreateProductRequest request)
@@ -63,7 +75,7 @@ public class ProductService : IProductService
 
         if (product is null) // Fast Fail
         {
-            return ServiceResult.Failure("Product not found", HttpStatusCode.NotFound);
+            ServiceResult.Failure("Product not found", HttpStatusCode.NotFound);
         }
 
         product.Name = request.Name;
@@ -86,4 +98,5 @@ public class ProductService : IProductService
         
         return ServiceResult.Success();
     }
+
 }
